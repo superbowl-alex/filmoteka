@@ -1,0 +1,77 @@
+@import '~node_modules/modern-normalize/modern-normalize.css';
+body {
+  font-family: Roboto;
+  font-size: 12px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --light-txt-color: #ffffff;
+  --primarily-txt-color: #000000;
+  --secondary-txt-color: #FF6B08;
+  --footer-txt-color: #545454;
+  --primarily-light-background: #E5E5E5;
+  --footer-ligth-backround: #F7F7F7;
+  --button-vote-background: #FF6B01;
+  --underline-failed: #FF001B;
+}
+
+footer {
+  background-color: #f7f7f7;
+  color: #545454;
+  padding-top: 28.71px;
+  padding-bottom: 29.7px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+}
+@media screen and (min-width: 768px) {
+  footer {
+    font-size: 16px;
+    line-height: 1.1875;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+}
+@media screen and (min-width: 1280px) {
+  footer {
+    padding-bottom: 28px;
+  }
+}
+
+.footer-section {
+  display: block;
+  text-align: center;
+}
+.footer-section br {
+  display: block;
+  content: "";
+  margin-bottom: 9.9px;
+}
+@media screen and (min-width: 768px) {
+  .footer-section br {
+    content: "";
+    display: contents;
+  }
+}
+
+.favorite {
+  transform: translate(0px, 3px);
+  margin-left: 10px;
+  margin-right: 10px;
+}
+@media screen and (min-width: 768px) {
+  .favorite {
+    height: 12.88px;
+  }
+}
+
+.footer-students {
+  color: #545454;
+}/*# sourceMappingURL=index.css.map */
