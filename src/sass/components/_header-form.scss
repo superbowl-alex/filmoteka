@@ -1,0 +1,56 @@
+.form-header {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.form-header_input {
+  width: 100%;
+
+  border: none;
+  outline: none;
+
+  border-bottom: 0.5px solid #ffffff;
+  color: var(--light-txt-color);
+
+  background-color: inherit;
+
+  @media screen and (min-width: $tablet) {
+    width: 336px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 394px;
+  }
+}
+
+.button-search {
+  position: absolute;
+  top: -2px;
+  left: 278px;
+  display: block;
+
+  border: none;
+  background-color: inherit;
+
+  @media screen and (min-width: $tablet) {
+    top: -2px;
+    left: 508px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    top: -2px;
+    left: 793px;
+  }
+}
+
+input::placeholder {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 16px;
+
+  color: var(--light-txt-color);
+}
