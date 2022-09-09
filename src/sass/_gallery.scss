@@ -1,0 +1,27 @@
+.gallery {
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-wrap: wrap;
+    margin: -16px;
+    margin-top: -32px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin-top: -32px;
+  }
+}
+.gallery__item {
+  @media screen and (min-width: 768px) {
+    flex-basis: calc((100% - 2 * 32px) / 2);
+    margin-left: 32px;
+    margin-top: 32px;
+  }
+  @media screen and (min-width: 1280px) {
+    flex-basis: calc((100% - 3 * 16px) / 3);
+    margin-left: 16px;
+  }
+  &:not(:last-child) {
+    @media screen and (max-width: 767px) {
+      margin-bottom: 20px;
+    }
+  }
+}
