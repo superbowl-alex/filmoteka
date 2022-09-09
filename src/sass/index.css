@@ -21,11 +21,10 @@ body {
 }
 
 footer {
-  background-color: #f7f7f7;
-  color: #545454;
+  background-color: var(--footer-ligth-backround);
+  color: var(--footer-txt-color);
   padding-top: 28.71px;
   padding-bottom: 29.7px;
-  font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
   font-size: 14px;
@@ -73,5 +72,5 @@ footer {
 }
 
 .footer-students {
-  color: #545454;
+  color: var(--footer-txt-color);
 }/*# sourceMappingURL=index.css.map */
