@@ -1,5 +1,7 @@
 import axios from 'axios';
 import { genres } from './Genres/genres.json';
+import { loadMore } from './loadMore';
+import { addLoadMoreBtn } from './addLoadMoreBtn';
 
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
@@ -11,15 +13,20 @@ export async function fetchTrendingMovies(page = 1) {
   return await response.data;
 }
 
-export async function renderTrendMovies() {
+export async function renderTrendMovies(page) {
   try {
-    const response = await fetchTrendingMovies();
+    const response = await fetchTrendingMovies(page);
     const movies = await response.results;
     return gallery.insertAdjacentHTML('beforeend', movieCard(movies));
   } catch (error) {
     console.log(error);
   }
 }
+
+const loadMoreBtn = document.querySelector('.load-more-button');
+loadMoreBtn.addEventListener('click', () => {
+  loadMore(renderTrendMovies)
+})
 
 export function movieCard(movies) {
   return movies
