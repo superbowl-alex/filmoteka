@@ -1,13 +1,17 @@
+@import './base/mixins';
 @import './common';
-
 @import './base/base';
 @import './base/reset';
+
+@import './base/modalfilm';
+
 @import './base/colors';
 @import './utils/mixins';
 @import './utils/breakpoints';
 
-/*general сontainer*/
-@import './container';
-
 /*heder-homepage*/
 @import './components/header-homepage';
+@import './footer';
+@import './section';
+@import './container';
+@import './gallery';

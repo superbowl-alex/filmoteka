@@ -4,6 +4,7 @@
 }
 
 ul {
+<<<<<<< HEAD
   padding-left: 0;
   margin-top: 0;
   margin-bottom: 0;
@@ -12,4 +13,20 @@ ul {
 
 .link {
   text-decoration: none;
+=======
+  list-style: none;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
+
+button {
+  outline: none;
+  &:hover {
+    cursor: pointer;
+  }
+>>>>>>> main
 }

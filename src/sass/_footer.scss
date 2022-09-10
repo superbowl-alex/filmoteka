@@ -1,0 +1,46 @@
+footer {
+  background-color: var(--footer-ligth-backround);
+  color: var(--footer-txt-color);
+  padding-top: 28.71px;
+  padding-bottom: 29.7px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.14;
+  @include tablet {
+    font-size: 16px;
+    line-height: 1.1875;
+    padding-top: 30px;
+    padding-bottom: 30px;
+  }
+  @include desktop {
+    padding-bottom: 28px;
+  }
+}
+
+.footer-section {
+  display: block;
+  text-align: center;
+  br {
+    display: block;
+    content: '';
+    margin-bottom: 9.9px;
+    @include tablet {
+      content: '';
+      display: contents;
+    }
+  }
+}
+
+.favorite {
+  transform: translate(0px, 3px);
+  margin-left: 10px;
+  margin-right: 10px;
+  @include tablet {
+    height: 12.88px;
+  }
+}
+
+.footer-students {
+  color: var(--footer-txt-color);
+}
