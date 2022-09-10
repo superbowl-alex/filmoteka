@@ -2,11 +2,12 @@ import axios from 'axios';
 import { genres } from './Genres/genres.json';
 
 const gallery = document.querySelector('.gallery');
-const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
-axios.defaults.baseURL = 'https://api.themoviedb.org/3';
+export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
 
-async function fetchTrendingMovies() {
-  const response = await axios(`/trending/movie/day?api_key=${API_KEY}`);
+export async function fetchTrendingMovies(page = 1) {
+  const response = await axios(
+    `https://api.themoviedb.org/3/trending/movie/day?api_key=${API_KEY}&page=${page}`
+  );
   return await response.data;
 }
 
