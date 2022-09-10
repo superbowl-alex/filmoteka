@@ -26,7 +26,6 @@ export function movieCard(movies) {
       const genresArray = [];
       const movieGenres = '';
       const movieRelease = new Date(release_date).getFullYear();
-
       genre_ids.map(id => {
         return genres.find(el => {
           if (el.id === id) return genresArray.push(el.name);
