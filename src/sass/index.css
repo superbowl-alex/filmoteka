@@ -64,6 +64,8 @@ footer {
   transform: translate(0px, 3px);
   margin-left: 10px;
   margin-right: 10px;
+  -webkit-animation: pulsing 2s infinite;
+  animation: pulsing 2s infinite;
 }
 @media screen and (min-width: 768px) {
   .favorite {
@@ -71,6 +73,28 @@ footer {
   }
 }
 
+@-webkit-keyframes pulsing {
+  0% {
+    transform: scale(0.5, 0.5);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.5, 0.5);
+  }
+}
+@keyframes pulsing {
+  0% {
+    transform: scale(0.5, 0.5);
+  }
+  50% {
+    transform: scale(1, 1);
+  }
+  100% {
+    transform: scale(0.5, 0.5);
+  }
+}
 .footer-students {
   color: var(--footer-txt-color);
 }/*# sourceMappingURL=index.css.map */
