@@ -24,6 +24,9 @@ export function movieCard(movies) {
   return movies
     .map(({ original_title, release_date, id, poster_path, genre_ids }) => {
       const genresArray = [];
+      const movieGenres = '';
+      const movieRelease = new Date(release_date).getFullYear();
+
       genre_ids.map(id => {
         return genres.find(el => {
           if (el.id === id) return genresArray.push(el.name);
@@ -34,7 +37,6 @@ export function movieCard(movies) {
       } else {
         movieGenres = `${genresArray.join(', ')}`;
       }
-      const movieRelease = new Date(release_date).getFullYear();
       const image = poster_path
         ? `<div class="gallery-item__image-wrap">
               <img class="gallery-item__image"
