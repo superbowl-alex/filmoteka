@@ -60,11 +60,16 @@ header {
   color: var(--light-txt-color);
 }
 
-.mobile-logo {
+.logo--mobile,
+.logo-link--mobile {
   display: none;
   @media screen and (max-width: 767px) {
     display: inline-block;
   }
+}
+
+.logo-link {
+  text-decoration: none;
 }
 
 .logo {
