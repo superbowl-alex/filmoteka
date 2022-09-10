@@ -2,11 +2,18 @@
 @import './common';
 @import './base/base';
 @import './base/reset';
+
 @import './base/modalfilm';
 @import './base/colors';
+@import './utils/mixins';
+@import './utils/breakpoints';
+
+/*heder-homepage*/
+@import './components/header-homepage';
 @import './footer';
 @import './section';
 @import './container';
 @import './gallery';
+
 @import './movieCard';
 @import './library-header';

@@ -1,0 +1,26 @@
+.logo-main {
+  margin-right: 112px;
+
+  @media screen and (min-width: $tablet) {
+    margin-right: 387px;
+  }
+
+  @media screen and (min-width: $desktop) {
+    margin-right: 898px;
+  }
+
+  &__text {
+    display: none;
+    @media screen and (min-width: $tablet) {
+      display: inline-block;
+      margin-left: 8px;
+
+      font-family: 'Roboto';
+      font-weight: 500;
+      font-size: 30px;
+      line-height: 35px;
+
+      color: var(--light-txt-color);
+    }
+  }
+}
