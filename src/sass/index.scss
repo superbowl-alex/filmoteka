@@ -4,7 +4,6 @@
 @import './base/reset';
 
 @import './base/modalfilm';
-
 @import './base/colors';
 @import './utils/mixins';
 @import './utils/breakpoints';
@@ -15,3 +14,6 @@
 @import './section';
 @import './container';
 @import './gallery';
+
+@import './movieCard';
+@import './library-header';
