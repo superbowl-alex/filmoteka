@@ -1,4 +1,4 @@
-/*import axios from 'axios';*/
+import axios from 'axios';
 import { genres } from './Genres/genres.json';
 
 const gallery = document.querySelector('.gallery');
