@@ -1,0 +1,55 @@
+@import './header-logo';
+@import './header-homepage-nav';
+@import './header-form';
+
+.header-homepage {
+  // position: fixed;
+  width: 100%;
+  background-color: var(--header-background-color);
+  top: 0;
+  left: 0;
+
+  &__container {
+    /*width: 320px;*/
+    height: 230px;
+    background-image: url(../images/header-img/hero-background-img-sm.png);
+
+    @include mq(retina) {
+      background-image: url(../images/header-img/hero-background-img-sm@2x.png);
+    }
+
+    @media screen and (min-width: $tablet) {
+      width: $tablet;
+      height: 216px;
+
+      background-image: url(../images/header-img/hero-background-img-md.png);
+      @include mq(retina) {
+        background-image: url(../images/header-img/hero-background-img-md@2x.png);
+      }
+    }
+
+    @media screen and (min-width: $desktop) {
+      width: $desktop;
+      height: 216px;
+      background-image: url(../images/header-img/hero-background-lg.png);
+      @include mq(retina) {
+        background-image: url(../images/header-img/hero-background-img-lg@2x.png);
+      }
+    }
+  }
+}
+
+.search-alert {
+  display: none;
+  /*display: flex;*/
+  justify-content: center;
+
+  margin-top: 20px;
+
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 16px;
+
+  color: var(--underline-failed);
+}

@@ -34,6 +34,7 @@ export function movieCard(movies) {
       const genresArray = [];
       let movieGenres = '';
       const movieRelease = new Date(release_date).getFullYear();
+
       genre_ids.map(id => {
         return genres.find(el => {
           if (el.id === id) return genresArray.push(el.name);
@@ -46,11 +47,11 @@ export function movieCard(movies) {
       }
       const image = poster_path
         ? `<div class="gallery-item__image-wrap">
-              <img class="gallery-item__image"
-                    src="https://www.themoviedb.org/t/p/w300_and_h450_bestv2${poster_path}"
-                    loading="lazy"
-                    alt="${original_title}"
-                    data-id="${id}"/>
+              <picture>
+                <source srcset="https://www.themoviedb.org/t/p/w500${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 768px)" type="image/jpeg">
+                <source srcset="https://www.themoviedb.org/t/p/w300${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 320px)" type="image/jpeg">                           
+                <img class="gallery-item__image" src="https://www.themoviedb.org/t/p/w300${poster_path}" loading="lazy" alt="${original_title}" data-id="${id}"/>/>
+              </picture>
             </div>`
         : `<div class="gallery-item__placeholder" data-id="${id}">
                 <svg class="gallery-item__placeholder-image" version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">

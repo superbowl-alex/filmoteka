@@ -1,19 +1,22 @@
 :root {
-    // Світла тема тексту
-    --light-txt-color: #ffffff;
+  //color header-homepage
+  --header-background-color: rgba(0, 0, 0, 0.822);
 
-    // Темна тема тексту
-    --primarily-txt-color: #000000;
-    --secondary-txt-color: #FF6B08;
-    --footer-txt-color: #545454;
+  // Світла тема тексту
+  --light-txt-color: #ffffff;
 
-    // Світла тема фону
-    --primarily-light-background: #E5E5E5;
-    --footer-ligth-backround: #F7F7F7;
+  // Темна тема тексту
+  --primarily-txt-color: #000000;
+  --secondary-txt-color: #ff6b08;
+  --footer-txt-color: #545454;
 
-    // Темна тема кнопки
-    --button-vote-background: #FF6B01;
+  // Світла тема фону
+  --primarily-light-background: #e5e5e5;
+  --footer-ligth-backround: #f7f7f7;
 
-    // Підкреслення для Home, My library і невдалого вводу в input
-    --underline-failed: #FF001B;
+  // Темна тема кнопки
+  --button-vote-background: #ff6b01;
+
+  // Підкреслення для Home, My library і невдалого вводу в input
+  --underline-failed: #ff001b;
 }
