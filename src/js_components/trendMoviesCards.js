@@ -1,6 +1,7 @@
 import axios from 'axios';
 import { genres } from '../Genres/genres.json';
-import { loadMore, addLoadMoreBtn, removeLoadMoreBtn } from './loadMore';
+import { addLoadMoreBtn, removeLoadMoreBtn } from './loadMore';
+import { renderLoadMoreMovies } from '../searchMovie'
 
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
@@ -22,11 +23,19 @@ export async function renderTrendMovies(page) {
   }
 }
 
-removeLoadMoreBtn();
+removeLoadMoreBtn(renderLoadMoreMovies);
 addLoadMoreBtn();
 const loadMoreBtn = document.querySelector('.load-more-button');
+let currentPage = 1;
+
+export function loadMore(func, page) {
+  page += 1;
+  func(page);
+  console.log(page);
+}
+
 loadMoreBtn.addEventListener('click', () => {
-  loadMore(renderTrendMovies);
+  loadMore(renderTrendMovies, currentPage);
 });
 
 export function movieCard(movies) {

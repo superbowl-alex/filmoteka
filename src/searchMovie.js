@@ -1,8 +1,8 @@
 const axios = require('axios');
 import { API_KEY } from './js_components/trendMoviesCards';
 import { movieCard } from './js_components/trendMoviesCards';
-import { renderTrendMovies } from './js_components/trendMoviesCards';
-import { loadMore, addLoadMoreBtn, removeLoadMoreBtn } from './js_components/loadMore';
+import { loadMore } from './js_components/trendMoviesCards';
+import { addLoadMoreBtn, removeLoadMoreBtn } from './js_components/loadMore';
 
 const gallery = document.querySelector('.gallery');
 const form = document.querySelector('.form-header');
@@ -12,7 +12,7 @@ let pageQuery;
 
 form.addEventListener('submit', onSearchMovie);
 
-removeLoadMoreBtn();
+removeLoadMoreBtn(loadMore);
 addLoadMoreBtn();
 const loadMoreBtn = document.querySelector('.load-more-button');
 
@@ -25,9 +25,6 @@ export function onSearchMovie(e) {
     return;
   } else {
     e.target.elements.query.value = '';
-    loadMoreBtn.removeEventListener('click', () => {
-      loadMore(renderTrendMovies);
-    });
     loadMoreBtn.addEventListener('click', () => {
       renderLoadMoreMovies(querySearch, pageQuery);
     });

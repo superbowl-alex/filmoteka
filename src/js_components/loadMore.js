@@ -13,11 +13,15 @@ export function addLoadMoreBtn() {
     footer.insertAdjacentHTML('beforebegin', loadMoreMarkup);
 }
 
-export function removeLoadMoreBtn() {
-    const buttonContainer = !document.querySelector('.load-more')
-    if (!document.querySelector('.load-more')) {
+export function removeLoadMoreBtn(func) {
+    const loadMoreBtn = document.querySelector('.load-more-button');
+    const buttonContainer = document.querySelector('.load-more')
+    if (!buttonContainer) {
         return
     }
+    loadMoreBtn.removeEventListener('click', () => {
+        func()
+    })
     buttonContainer.remove()
 }
 
@@ -26,16 +30,3 @@ export let currentPage = 1;
 // const value = null;
 // const pageNumber = value / 20;
 //це я продумую варіанти
-
-export function loadMore(fetchFunction) {
-    //
-    // if (pageNumber < currentPage) {
-    //     loadMoreBtn.removeEventListuner('click', () => {
-    //         loadMore(something)
-    //     })
-    //     loadMoreEl.remove()
-    // }
-    currentPage += 1;
-    fetchFunction(currentPage)
-    // renderFunvtion();
-}
