@@ -1,7 +1,7 @@
 import axios from 'axios';
-import { genres } from './Genres/genres.json';
-import { loadMore } from './loadMore';
-import { addLoadMoreBtn } from './addLoadMoreBtn';
+import { genres } from '../Genres/genres.json';
+import { loadMore } from '../loadMore';
+import { addLoadMoreBtn } from '../addLoadMoreBtn';
 
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
@@ -25,8 +25,8 @@ export async function renderTrendMovies(page) {
 
 const loadMoreBtn = document.querySelector('.load-more-button');
 loadMoreBtn.addEventListener('click', () => {
-  loadMore(renderTrendMovies)
-})
+  loadMore(renderTrendMovies);
+});
 
 export function movieCard(movies) {
   return movies
@@ -48,7 +48,7 @@ export function movieCard(movies) {
       const image = poster_path
         ? `<div class="gallery-item__image-wrap">
               <picture>
-                <source srcset="https://www.themoviedb.org/t/p/w500${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 768px)" type="image/jpeg">
+                <source srcset="https://www.themoviedb.org/t/p/w780${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 768px)" type="image/jpeg">
                 <source srcset="https://www.themoviedb.org/t/p/w300${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 320px)" type="image/jpeg">                           
                 <img class="gallery-item__image" src="https://www.themoviedb.org/t/p/w300${poster_path}" loading="lazy" alt="${original_title}" data-id="${id}"/>/>
               </picture>
