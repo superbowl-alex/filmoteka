@@ -42,7 +42,7 @@ removeLoadMoreBtn(loadMoreMovies);
 addLoadMoreBtn();
 const loadMoreBtn = document.querySelector('.load-more-button');
 
-function loadMore() {
+export function loadMore() {
   currentPage += 1;
   renderTrendMovies(currentPage);
   if (currentPage >= totalPages) {
