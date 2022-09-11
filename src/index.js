@@ -1,7 +1,6 @@
 const axios = require('axios');
 import ApiQuery from './js_components/api_query';
-import headerHeight from './js-components/header-height';
-import { renderTrendMovies } from './trendMoviesCards';
+import { renderTrendMovies } from './js_components/trendMoviesCards';
 import { onSearchMovie } from './searchMovie';
 
 renderTrendMovies();

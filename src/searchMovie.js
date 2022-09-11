@@ -1,7 +1,7 @@
 const axios = require('axios');
-import { API_KEY } from './trendMoviesCards';
-import { movieCard } from './trendMoviesCards';
-import { renderTrendMovies } from './trendMoviesCards';
+import { API_KEY } from './js_components/trendMoviesCards';
+import { movieCard } from './js_components/trendMoviesCards';
+import { renderTrendMovies } from './js_components/trendMoviesCards';
 import { loadMore } from './loadMore';
 
 const gallery = document.querySelector('.gallery');
