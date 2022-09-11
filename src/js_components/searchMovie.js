@@ -3,30 +3,27 @@ import { API_KEY } from './trendMoviesCards';
 import { movieCard } from './trendMoviesCards';
 import { renderTrendMovies } from './trendMoviesCards';
 import { loadMore } from './loadMore';
+import getRefs from './getRefs';
 
-const gallery = document.querySelector('.gallery');
-const form = document.querySelector('.form-header');
-const alert = document.querySelector('.search-alert');
+const refs = getRefs();
 let querySearch = '';
 let pageQuery;
 
-form.addEventListener('submit', onSearchMovie);
-
-const loadMoreBtn = document.querySelector('.load-more-button');
+refs.form.addEventListener('submit', onSearchMovie);
 
 export function onSearchMovie(e) {
   e.preventDefault();
   pageQuery = 1;
-  alert.classList.add('is-hidden');
+  refs.alert.classList.add('is-hidden');
   querySearch = e.target.elements.query.value.trim();
   if (!querySearch) {
     return;
   } else {
     e.target.elements.query.value = '';
-    loadMoreBtn.removeEventListener('click', () => {
+    refs.loadMoreBtn.removeEventListener('click', () => {
       loadMore(renderTrendMovies);
     });
-    loadMoreBtn.addEventListener('click', () => {
+    refs.loadMoreBtn.addEventListener('click', () => {
       renderLoadMoreMovies(querySearch, pageQuery);
     });
     renderSearchMovies(querySearch);
@@ -45,12 +42,12 @@ function renderSearchMovies(query) {
     .then(({ data }) => {
       let movies = data.results;
       if (movies.length === 0) {
-        alert.classList.remove('is-hidden');
+        refs.alert.classList.remove('is-hidden');
         return;
       } else {
-        gallery.innerHTML = '';
+        refs.gallery.innerHTML = '';
         pageQuery += 1;
-        return gallery.insertAdjacentHTML('beforeend', movieCard(movies));
+        return refs.gallery.insertAdjacentHTML('beforeend', movieCard(movies));
       }
     })
     .catch(error => console.log(error));
@@ -61,7 +58,7 @@ function renderLoadMoreMovies(query, page) {
     .then(({ data }) => {
       const movies = data.results;
       pageQuery += 1;
-      return gallery.insertAdjacentHTML('beforeend', movieCard(movies));
+      return refs.gallery.insertAdjacentHTML('beforeend', movieCard(movies));
     })
     .catch(error => console.log(error));
 }
