@@ -1,14 +1,14 @@
 const axios = require('axios');
-import { API_KEY } from './js_components/trendMoviesCards';
-import { movieCard } from './js_components/trendMoviesCards';
-import { renderTrendMovies } from './js_components/trendMoviesCards';
+import { API_KEY } from './trendMoviesCards';
+import { movieCard } from './trendMoviesCards';
+import { renderTrendMovies } from './trendMoviesCards';
 import { loadMore } from './loadMore';
 
 const gallery = document.querySelector('.gallery');
 const form = document.querySelector('.form-header');
 const alert = document.querySelector('.search-alert');
 let querySearch = '';
-let page;
+let pageQuery;
 
 form.addEventListener('submit', onSearchMovie);
 
@@ -16,18 +16,19 @@ const loadMoreBtn = document.querySelector('.load-more-button');
 
 export function onSearchMovie(e) {
   e.preventDefault();
-  page = 1;
+  pageQuery = 1;
   alert.classList.add('is-hidden');
   querySearch = e.target.elements.query.value.trim();
   if (!querySearch) {
     return;
   } else {
     e.target.elements.query.value = '';
-    loadMoreBtn.removeEventListener('click', loadMore);
-    loadMoreBtn.addEventListener('click', () => {
-      renderLoadMoreMovies(querySearch, page);
+    loadMoreBtn.removeEventListener('click', () => {
+      loadMore(renderTrendMovies);
     });
-
+    loadMoreBtn.addEventListener('click', () => {
+      renderLoadMoreMovies(querySearch, pageQuery);
+    });
     renderSearchMovies(querySearch);
   }
 }
@@ -40,15 +41,15 @@ export async function fetchMovies(query, page) {
 }
 
 function renderSearchMovies(query) {
-  fetchMovies(query, page)
+  fetchMovies(query, pageQuery)
     .then(({ data }) => {
-      const movies = data.results;
+      let movies = data.results;
       if (movies.length === 0) {
         alert.classList.remove('is-hidden');
         return;
       } else {
         gallery.innerHTML = '';
-        page += 1;
+        pageQuery += 1;
         return gallery.insertAdjacentHTML('beforeend', movieCard(movies));
       }
     })
@@ -57,9 +58,9 @@ function renderSearchMovies(query) {
 
 function renderLoadMoreMovies(query, page) {
   fetchMovies(query, page)
-    .then(({ response }) => {
-      const movies = response.results;
-      page += 1;
+    .then(({ data }) => {
+      const movies = data.results;
+      pageQuery += 1;
       return gallery.insertAdjacentHTML('beforeend', movieCard(movies));
     })
     .catch(error => console.log(error));

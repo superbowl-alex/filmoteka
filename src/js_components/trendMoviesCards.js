@@ -2,8 +2,8 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.5.min.css';
 import { genres } from '../Genres/genres.json';
-import { loadMore } from '../loadMore';
-import { addLoadMoreBtn } from '../addLoadMoreBtn';
+import { loadMore } from './loadMore';
+import { addLoadMoreBtn } from './addLoadMoreBtn';
 
 const loadMoreBtnWrap = document.querySelector('.load-more');
 const gallery = document.querySelector('.gallery');
