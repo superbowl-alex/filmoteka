@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { genres } from '../Genres/genres.json';
-import { loadMore } from '../loadMore';
-import { addLoadMoreBtn } from '../addLoadMoreBtn';
+import { loadMore } from './loadMore';
+import { addLoadMoreBtn } from './addLoadMoreBtn';
 
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
