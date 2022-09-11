@@ -75,7 +75,7 @@ function renderLoadMoreMovies(query, page) {
 }
 
 // Function that is executed when the loadMoreBtn is clicked
-function loadMoreMovies() {
+export function loadMoreMovies() {
   renderLoadMoreMovies(querySearch, pageQuery);
   if (pageQuery >= totalPages) {
     removeLoadMoreBtn(loadMoreMovies);
