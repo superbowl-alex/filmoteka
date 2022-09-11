@@ -37,9 +37,11 @@ export async function renderTrendMovies(page) {
 }
 
 const loadMoreBtn = document.querySelector('.load-more-button');
-loadMoreBtn.addEventListener('click', () => {
-  loadMore(renderTrendMovies);
-});
+loadMoreBtn.addEventListener('click', loadingMore);
+
+export function loadingMore() {
+  return loadMore(renderTrendMovies);
+}
 
 export function movieCard(movies) {
   return movies
