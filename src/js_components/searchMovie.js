@@ -1,9 +1,9 @@
 // Import required packages, entities and modules
 const axios = require('axios');
-import { API_KEY } from './trendMoviesCards';
-import { movieCard } from './trendMoviesCards';
-import { loadingMore } from './trendMoviesCards';
+import { loadMore, API_KEY, movieCard } from './trendMoviesCards';
+import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import getRefs from './getRefs';
+
 
 // Initializing references to DOM elements
 const refs = getRefs();
@@ -11,9 +11,11 @@ const refs = getRefs();
 // Variable declaration
 let querySearch = '';
 let pageQuery;
+let totalPages = null;
 
 // Add eventListener to the form
 refs.form.addEventListener('submit', onSearchMovie);
+
 
 //Function for requesting and receiving data from the server
 export async function fetchMovies(query, page) {
@@ -26,7 +28,6 @@ export async function fetchMovies(query, page) {
 // Function that run on the form submit
 export function onSearchMovie(e) {
   e.preventDefault();
-  refs.loadMoreBtn.removeEventListener('click', loadMoreMovies);
   pageQuery = 1;
   refs.alert.classList.add('is-hidden');
   querySearch = e.target.elements.query.value.trim();
@@ -34,9 +35,13 @@ export function onSearchMovie(e) {
     return;
   } else {
     e.target.elements.query.value = '';
-    refs.loadMoreBtn.removeEventListener('click', loadingMore);
-    refs.loadMoreBtn.addEventListener('click', loadMoreMovies);
     renderSearchMovies(querySearch);
+    removeLoadMoreBtn(loadMore);
+    addLoadMoreBtn();
+    const loadMoreBtn = document.querySelector('.load-more-button');
+    loadMoreBtn.addEventListener('click', () => {
+      loadMoreMovies();
+    });
   }
 }
 
@@ -45,6 +50,7 @@ function renderSearchMovies(query) {
   fetchMovies(query, pageQuery)
     .then(({ data }) => {
       let movies = data.results;
+      totalPages = data.total_pages
       if (movies.length === 0) {
         refs.alert.classList.remove('is-hidden');
         return;
@@ -70,5 +76,9 @@ function renderLoadMoreMovies(query, page) {
 
 // Function that is executed when the loadMoreBtn is clicked
 function loadMoreMovies() {
-  return renderLoadMoreMovies(querySearch, pageQuery);
+  renderLoadMoreMovies(querySearch, pageQuery);
+  if (pageQuery >= totalPages) {
+    removeLoadMoreBtn(loadMoreMovies);
+    return;
+  }
 }
