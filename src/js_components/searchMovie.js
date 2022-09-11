@@ -1,8 +1,10 @@
 const axios = require('axios');
-import { API_KEY } from './js_components/trendMoviesCards';
-import { movieCard } from './js_components/trendMoviesCards';
 import { loadMore } from './js_components/trendMoviesCards';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './js_components/loadMore';
+import { API_KEY } from './trendMoviesCards';
+import { movieCard } from './trendMoviesCards';
+import { renderTrendMovies } from './trendMoviesCards';
+
 
 const gallery = document.querySelector('.gallery');
 const form = document.querySelector('.form-header');

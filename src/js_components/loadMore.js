@@ -6,7 +6,8 @@
 //     loadMore(функція, що рендерить картки)
 // })
 
-const footer = document.querySelector('footer');
+<
+    const footer= document.querySelector('footer');
 
 export const loadMoreMarkup = '<div class="load-more"><button class="load-more-button" type="button">Load More</button></div> ';
 export function addLoadMoreBtn() {
@@ -30,3 +31,4 @@ export let currentPage = 1;
 // const value = null;
 // const pageNumber = value / 20;
 //це я продумую варіанти
+

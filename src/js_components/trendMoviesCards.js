@@ -3,6 +3,7 @@ import { genres } from '../Genres/genres.json';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './loadMore';
 import { renderLoadMoreMovies } from '../searchMovie'
 
+
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
 
