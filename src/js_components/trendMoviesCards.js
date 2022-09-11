@@ -1,8 +1,11 @@
 import axios from 'axios';
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.5.min.css';
 import { genres } from '../Genres/genres.json';
 import { loadMore } from '../loadMore';
 import { addLoadMoreBtn } from '../addLoadMoreBtn';
 
+const loadMoreBtnWrap = document.querySelector('.load-more');
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
 
@@ -17,7 +20,17 @@ export async function renderTrendMovies(page) {
   try {
     const response = await fetchTrendingMovies(page);
     const movies = await response.results;
-    return gallery.insertAdjacentHTML('beforeend', movieCard(movies));
+    gallery.insertAdjacentHTML('beforeend', movieCard(movies));
+    if (response.total_pages === page) {
+      loadMoreBtnWrap.style.display = 'none';
+      return Notiflix.Notify.failure(`This is the last page`, {
+        width: '400px',
+        position: 'right-top',
+        svgSize: '120px',
+        fontSize: '18px',
+        timeout: 2000,
+      });
+    }
   } catch (error) {
     console.log(error);
   }
