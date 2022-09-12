@@ -1,4 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
+
+import 'basiclightbox/dist/basicLightbox.min.css';
 import { getGenres } from './helpers';
 
 document.querySelector(".gallery").addEventListener("click", onModalClick)
@@ -13,7 +15,7 @@ function onModalClick(e) {
   const lightbox = basicLightbox.create(template);
   fillMovieDetails(lightbox.element(), JSON.parse(item.dataset.movie));
   lightbox.show();
-  
+
   window.addEventListener('keydown', closeModalByEsc);
   function closeModalByEsc(e) {
     if (e.code === 'Escape') {
