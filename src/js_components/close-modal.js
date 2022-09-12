@@ -43,4 +43,12 @@ function fillMovieDetails(template, movie) {
   template.querySelector(".original-title").innerHTML = movie.title;
   template.querySelector(".movie-genres").innerHTML = getGenres(movie.genre_ids);
   template.querySelector(".modalfoto-img").src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`
+
+  template.querySelector('button[data-watched]').addEventListener("click", function() {
+    console.log(movie)
+  })
+
+  template.querySelector('button[data-queue]').addEventListener("click", function() {
+    console.log(movie)
+  })
 }
