@@ -8,3 +8,7 @@ renderTrendMovies();
 const form = document.querySelector('.form-header');
 form.addEventListener('submit', onSearchMovie);
 import './js_components/close-modal';
+
+import { onBtnAddToWatchedClick } from './js_components/addToWatched';
+const btnWatched = document.querySelector('.watched');
+btnWatched.addEventListener('click', onBtnAddToWatchedClick);
