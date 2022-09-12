@@ -16,6 +16,3 @@ export function removeLoadMoreBtn(func) {
     })
     buttonContainer.remove()
 }
-
-
-

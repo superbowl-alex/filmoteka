@@ -1,9 +1,10 @@
 // Import required packages, entities and modules
 const axios = require('axios');
-import { loadMore, API_KEY, movieCard } from './trendMoviesCards';
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.5.min.css';
+import { loadMore, API_KEY, getMovieElements } from './trendMoviesCards';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import getRefs from './getRefs';
-
 
 // Initializing references to DOM elements
 const refs = getRefs();
@@ -15,7 +16,6 @@ let totalPages = null;
 
 // Add eventListener to the form
 refs.form.addEventListener('submit', onSearchMovie);
-
 
 //Function for requesting and receiving data from the server
 export async function fetchMovies(query, page) {
@@ -50,14 +50,20 @@ function renderSearchMovies(query) {
   fetchMovies(query, pageQuery)
     .then(({ data }) => {
       let movies = data.results;
-      totalPages = data.total_pages
+      totalPages = data.total_pages;
       if (movies.length === 0) {
         refs.alert.classList.remove('is-hidden');
         return;
       } else {
         refs.gallery.innerHTML = '';
+        const elements = getMovieElements(movies);
+        elements.forEach(element =>
+          refs.gallery.insertAdjacentElement('beforeend', element)
+        );
+        if (totalPages === pageQuery) {
+          warningEndCollection();
+        }
         pageQuery += 1;
-        return refs.gallery.insertAdjacentHTML('beforeend', movieCard(movies));
       }
     })
     .catch(error => console.log(error));
@@ -68,8 +74,14 @@ function renderLoadMoreMovies(query, page) {
   fetchMovies(query, page)
     .then(({ data }) => {
       const movies = data.results;
+      const elements = getMovieElements(movies);
+      elements.forEach(element =>
+        refs.gallery.insertAdjacentElement('beforeend', element)
+      );
+      if (totalPages === pageQuery) {
+        warningEndCollection();
+      }
       pageQuery += 1;
-      return refs.gallery.insertAdjacentHTML('beforeend', movieCard(movies));
     })
     .catch(error => console.log(error));
 }
@@ -81,4 +93,14 @@ export function loadMoreMovies() {
     removeLoadMoreBtn(loadMoreMovies);
     return;
   }
+}
+
+// Function that warns that we have reached the end of the collection
+function warningEndCollection() {
+  return Notiflix.Notify.failure(`This is the last page`, {
+    width: '400px',
+    svgSize: '120px',
+    fontSize: '18px',
+    timeout: 2000,
+  });
 }
