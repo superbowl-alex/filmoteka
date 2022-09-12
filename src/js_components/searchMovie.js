@@ -1,6 +1,6 @@
 // Import required packages, entities and modules
 const axios = require('axios');
-import { loadMore, API_KEY, movieCard } from './trendMoviesCards';
+import { loadMore, API_KEY, getMovieElements } from './trendMoviesCards';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import getRefs from './getRefs';
 
@@ -57,7 +57,8 @@ function renderSearchMovies(query) {
       } else {
         refs.gallery.innerHTML = '';
         pageQuery += 1;
-        return refs.gallery.insertAdjacentHTML('beforeend', movieCard(movies));
+        const elements = getMovieElements(movies);
+        elements.forEach(element => refs.gallery.insertAdjacentElement('beforeend', element));
       }
     })
     .catch(error => console.log(error));
@@ -69,7 +70,8 @@ function renderLoadMoreMovies(query, page) {
     .then(({ data }) => {
       const movies = data.results;
       pageQuery += 1;
-      return refs.gallery.insertAdjacentHTML('beforeend', movieCard(movies));
+      const elements = getMovieElements(movies);
+      elements.forEach(element => refs.gallery.insertAdjacentElement('beforeend', element));
     })
     .catch(error => console.log(error));
 }
