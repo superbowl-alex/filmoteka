@@ -1,7 +1,6 @@
 import axios from 'axios';
 import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.5.min.css';
-import { onModalOpen } from './close-modal';
 import { createElementFromHTML, getGenres } from './helpers';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import { loadMoreMovies } from './searchMovie'
@@ -93,7 +92,7 @@ export function getMovieElements(movies) {
         </li>
       `);
 
-      element.addEventListener('click', e => onModalOpen(e, movie));
+      element.dataset.movie = JSON.stringify(movie);
 
       return element;
     });
