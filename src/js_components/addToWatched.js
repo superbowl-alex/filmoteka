@@ -1,16 +1,32 @@
-// import getRefs from './getRefs';
-
-// const btnWatched = document.querySelector('.watched');
-const data = { a: 5, b: 5, c: 5, d: 5 };
-console.log(data);
+const data = { a: 5, b: 6, c: 7, d: 8 };
 let watchedFilms = [];
-console.log(watchedFilms);
+let parsedWatchedFilms = [];
+let dataJson = [];
 const LOCALSTORAGE_KEY = 'watched-movies';
 
-export function onBtnAddToWatchedClick() {
-  //   watchedFilms = [...data, ...watchedFilms];
-  //   localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(watchedFilms));
-  return console.log(555);
+function onBtnAddToWatchedClick() {
+  watchedFilms = localStorage.getItem(LOCALSTORAGE_KEY);
+  parsedWatchedFilms = JSON.parse(watchedFilms);
+
+  if (parsedWatchedFilms) {
+    parsedWatchedFilms.push(data);
+    dataJson = JSON.stringify(parsedWatchedFilms);
+    localStorage.setItem(LOCALSTORAGE_KEY, dataJson);
+  } else {
+    parsedWatchedFilms = [data];
+    dataJson = JSON.stringify(parsedWatchedFilms);
+    localStorage.setItem(LOCALSTORAGE_KEY, dataJson);
+  }
 }
 
+// const btnWatched = document.querySelector('.load-more');
 // btnWatched.addEventListener('click', onBtnAddToWatchedClick);
+
+function onBtnClick(e) {
+  console.log(e.target.className);
+  if (e.target.className === 'btn watched') {
+    onBtnAddToWatchedClick();
+  }
+}
+document.addEventListener('click', onBtnClick);
+// window.addEventListener('click', onBtnClick);
