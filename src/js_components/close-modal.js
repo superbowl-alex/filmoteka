@@ -1,4 +1,6 @@
 import * as basicLightbox from 'basiclightbox';
+// import 'basiclightbox/src/styles/main.scss';
+import 'basiclightbox/dist/basicLightbox.min.css';
 import { getGenres } from './helpers';
 
 export function onModalOpen(e, movie) {
@@ -8,7 +10,7 @@ export function onModalOpen(e, movie) {
   const lightbox = basicLightbox.create(template);
   fillMovieDetails(lightbox.element(), movie);
   lightbox.show();
-  
+
   window.addEventListener('keydown', closeModalByEsc);
   function closeModalByEsc(e) {
     if (e.code === 'Escape') {
@@ -28,13 +30,17 @@ export function onModalOpen(e, movie) {
 }
 
 function fillMovieDetails(template, movie) {
-  console.log('movie', movie)
-  template.querySelector(".movie-title").innerHTML = movie.title;
-  template.querySelector(".about-text").innerHTML = movie.overview;
-  template.querySelector(".vote").innerHTML = movie.vote_average;
-  template.querySelector(".votes").innerHTML = movie.vote_count;
-  template.querySelector(".popularity").innerHTML = movie.popularity;
-  template.querySelector(".original-title").innerHTML = movie.title;
-  template.querySelector(".movie-genres").innerHTML = getGenres(movie.genre_ids);
-  template.querySelector(".modalfoto-img").src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`
+  console.log('movie', movie);
+  template.querySelector('.movie-title').innerHTML = movie.title;
+  template.querySelector('.about-text').innerHTML = movie.overview;
+  template.querySelector('.vote').innerHTML = movie.vote_average;
+  template.querySelector('.votes').innerHTML = movie.vote_count;
+  template.querySelector('.popularity').innerHTML = movie.popularity;
+  template.querySelector('.original-title').innerHTML = movie.title;
+  template.querySelector('.movie-genres').innerHTML = getGenres(
+    movie.genre_ids
+  );
+  template.querySelector(
+    '.modalfoto-img'
+  ).src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`;
 }
