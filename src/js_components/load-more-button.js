@@ -11,9 +11,7 @@ export function removeLoadMoreBtn(func) {
     if (!buttonContainer) {
         return
     }
-    loadMoreBtn.removeEventListener('click', () => {
-        func()
-    })
+    loadMoreBtn.removeEventListener('click', func)
     buttonContainer.remove()
 }
 

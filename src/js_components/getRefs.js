@@ -6,6 +6,5 @@ export default function getRefs() {
     gallery: document.querySelector('.gallery'),
     loadMoreBtn: document.querySelector('.load-more-button'),
     alert: document.querySelector('.search-alert'),
-    loadMoreBtn: document.querySelector('.load-more-button'),
   };
 }
