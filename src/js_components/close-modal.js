@@ -1,5 +1,5 @@
 import * as basicLightbox from 'basiclightbox';
-// import 'basiclightbox/src/styles/main.scss';
+
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { getGenres } from './helpers';
 
