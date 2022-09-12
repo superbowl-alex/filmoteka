@@ -1,4 +1,4 @@
-.scrol-up {
+.scroll-up {
     position: fixed;
     right: 100px;
     bottom: 50px;
@@ -15,7 +15,7 @@
     transform: translateY(25px);
 }
 
-.scrol-up::before {
+.scroll-up::before {
     position: absolute;
     top: 0;
     left: 0;
@@ -28,17 +28,17 @@
     content: '🠅';
 }
 
-.scrol-up:hover {
+.scroll-up:hover {
     color: orange;
 }
 
-.scrol-up--active {
+.scroll-up--active {
     visibility: visible;
     opacity: 1;
     transform: translateY(0);
 }
 
-.scrol-up_svg-path {
+.scroll-up_svg-path {
     box-sizing: border-box;
     fill: none;
     stroke: orange;
