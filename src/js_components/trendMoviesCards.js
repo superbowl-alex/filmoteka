@@ -2,10 +2,12 @@ import axios from 'axios';
 import Notiflix from 'notiflix';
 import 'notiflix/dist/notiflix-3.2.5.min.css';
 import { genres } from '../Genres/genres.json';
-import { loadMore } from './loadMore';
-import { addLoadMoreBtn } from './addLoadMoreBtn';
+import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
+import { loadMoreMovies } from './searchMovie'
 
-const loadMoreBtnWrap = document.querySelector('.load-more');
+let currentPage = 1;
+let totalPages = null;
+
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
 
@@ -20,9 +22,9 @@ export async function renderTrendMovies(page) {
   try {
     const response = await fetchTrendingMovies(page);
     const movies = await response.results;
+    totalPages = await response.total_pages;
     gallery.insertAdjacentHTML('beforeend', movieCard(movies));
-    if (response.total_pages === page) {
-      loadMoreBtnWrap.style.display = 'none';
+    if (totalPages === page) {
       return Notiflix.Notify.failure(`This is the last page`, {
         width: '400px',
         position: 'right-top',
@@ -36,12 +38,22 @@ export async function renderTrendMovies(page) {
   }
 }
 
+removeLoadMoreBtn(loadMoreMovies);
+addLoadMoreBtn();
 const loadMoreBtn = document.querySelector('.load-more-button');
-loadMoreBtn.addEventListener('click', loadingMore);
 
-export function loadingMore() {
-  return loadMore(renderTrendMovies);
+export function loadMore() {
+  currentPage += 1;
+  renderTrendMovies(currentPage);
+  if (currentPage >= totalPages) {
+    removeLoadMoreBtn(loadMore);
+    return;
+  }
 }
+
+loadMoreBtn.addEventListener('click', () => {
+  loadMore(renderTrendMovies, currentPage);
+});
 
 export function movieCard(movies) {
   return movies
