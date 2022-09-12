@@ -5,6 +5,8 @@ import { genres } from '../Genres/genres.json';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import { loadMoreMovies } from './searchMovie'
 
+import loading from './loading-spinner';
+
 let currentPage = 1;
 let totalPages = null;
 
@@ -44,6 +46,7 @@ const loadMoreBtn = document.querySelector('.load-more-button');
 
 export function loadMore() {
   currentPage += 1;
+  loading();
   renderTrendMovies(currentPage);
   if (currentPage >= totalPages) {
     removeLoadMoreBtn(loadMore);

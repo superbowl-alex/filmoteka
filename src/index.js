@@ -8,3 +8,5 @@ renderTrendMovies();
 const form = document.querySelector('.form-header');
 form.addEventListener('submit', onSearchMovie);
 import './js_components/close-modal';
+import loadingspiner from './js_components/loading-spinner';
+import loading from './js_components/loading-spinner';
