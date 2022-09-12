@@ -1,12 +1,19 @@
 import * as basicLightbox from 'basiclightbox';
+
+import 'basiclightbox/dist/basicLightbox.min.css';
 import { getGenres } from './helpers';
 
-export function onModalOpen(e, movie) {
+document.querySelector(".gallery").addEventListener("click", onModalClick)
+
+function onModalClick(e) {
   e.preventDefault();
+
+  const item = e.target.closest('.gallery-item');
+  if (!item) return;
 
   const template = document.querySelector('template');
   const lightbox = basicLightbox.create(template);
-  fillMovieDetails(lightbox.element(), movie);
+  fillMovieDetails(lightbox.element(), JSON.parse(item.dataset.movie));
   lightbox.show();
 
   window.addEventListener('keydown', closeModalByEsc);
@@ -28,17 +35,20 @@ export function onModalOpen(e, movie) {
 }
 
 function fillMovieDetails(template, movie) {
-  console.log('movie', movie);
-  template.querySelector('.movie-title').innerHTML = movie.title;
-  template.querySelector('.about-text').innerHTML = movie.overview;
-  template.querySelector('.vote').innerHTML = movie.vote_average;
-  template.querySelector('.votes').innerHTML = movie.vote_count;
-  template.querySelector('.popularity').innerHTML = movie.popularity;
-  template.querySelector('.original-title').innerHTML = movie.title;
-  template.querySelector('.movie-genres').innerHTML = getGenres(
-    movie.genre_ids
-  );
-  template.querySelector(
-    '.modalfoto-img'
-  ).src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`;
+  template.querySelector(".movie-title").innerHTML = movie.title;
+  template.querySelector(".about-text").innerHTML = movie.overview;
+  template.querySelector(".vote").innerHTML = movie.vote_average;
+  template.querySelector(".votes").innerHTML = movie.vote_count;
+  template.querySelector(".popularity").innerHTML = movie.popularity;
+  template.querySelector(".original-title").innerHTML = movie.title;
+  template.querySelector(".movie-genres").innerHTML = getGenres(movie.genre_ids);
+  template.querySelector(".modalfoto-img").src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`
+
+  template.querySelector('button[data-watched]').addEventListener("click", function() {
+    console.log(movie)
+  })
+
+  template.querySelector('button[data-queue]').addEventListener("click", function() {
+    console.log(movie)
+  })
 }
