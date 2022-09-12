@@ -1,5 +1,5 @@
-const data = { a: 2, b: 3, c: 4 };
-console.log(data);
+import { data } from './close-modal';
+// console.log(data);
 
 let watchedFilms = [];
 let parsedWatchedFilms = [];
@@ -21,14 +21,13 @@ function onBtnAddToWatchedClick() {
   }
 }
 
-// const btnWatched = document.querySelector('.load-more');
+// const btnWatched = document.querySelector('.watched');
 // btnWatched.addEventListener('click', onBtnAddToWatchedClick);
 
 function onBtnClick(e) {
-  console.log(e.target.className);
+  // console.log(e.target.className);
   if (e.target.className === 'btn watched') {
     onBtnAddToWatchedClick();
   }
 }
 document.addEventListener('click', onBtnClick);
-// window.addEventListener('click', onBtnClick);
