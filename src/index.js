@@ -8,3 +8,4 @@ renderTrendMovies();
 const form = document.querySelector('.form-header');
 form.addEventListener('submit', onSearchMovie);
 import './js_components/close-modal';
+import './js_components/scroll-up'
