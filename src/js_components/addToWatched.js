@@ -1,4 +1,6 @@
-const data = { a: 5, b: 6, c: 7, d: 8 };
+const data = { a: 2, b: 3, c: 4 };
+console.log(data);
+
 let watchedFilms = [];
 let parsedWatchedFilms = [];
 let dataJson = [];
