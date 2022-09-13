@@ -16,7 +16,7 @@ function onModalClick(e) {
 
   data = JSON.parse(item.dataset.movie);
 
-  const template = document.querySelector('template');
+  const template = document.querySelector('template[data-movie]');
   const lightbox = basicLightbox.create(template, {
     onShow: () => {
       document.body.style.overflow = 'hidden';
