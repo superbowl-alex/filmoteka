@@ -6,6 +6,8 @@ import { loadMore, API_KEY, getMovieElements } from './trendMoviesCards';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import getRefs from './getRefs';
 
+import loading from './loading-spinner';
+
 // Initializing references to DOM elements
 const refs = getRefs();
 
@@ -38,9 +40,11 @@ export function onSearchMovie(e) {
     renderSearchMovies(querySearch);
     removeLoadMoreBtn(loadMore);
     addLoadMoreBtn();
+    loading();
     const loadMoreBtn = document.querySelector('.load-more-button');
     loadMoreBtn.addEventListener('click', () => {
       loadMoreMovies();
+      loading();
     });
   }
 }
