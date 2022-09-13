@@ -1,7 +1,12 @@
 import axios from 'axios';
-import { genres } from './Genres/genres.json';
-import { loadMore } from './loadMore';
-import { addLoadMoreBtn } from './addLoadMoreBtn';
+import Notiflix from 'notiflix';
+import 'notiflix/dist/notiflix-3.2.5.min.css';
+import { createElementFromHTML, getGenres } from './helpers';
+import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
+import { loadMoreMovies } from './searchMovie'
+
+let currentPage = 1;
+let totalPages = null;
 
 const gallery = document.querySelector('.gallery');
 export const API_KEY = '6308d1a98819d8ffdd4916cbcea5cd95';
@@ -17,38 +22,51 @@ export async function renderTrendMovies(page) {
   try {
     const response = await fetchTrendingMovies(page);
     const movies = await response.results;
-    return gallery.insertAdjacentHTML('beforeend', movieCard(movies));
+    totalPages = await response.total_pages;
+
+    const elements = getMovieElements(movies);
+    elements.forEach(element => gallery.insertAdjacentElement('beforeend', element));
+
+    if (totalPages === page) {
+      return Notiflix.Notify.failure(`This is the last page`, {
+        width: '400px',
+        position: 'right-top',
+        svgSize: '120px',
+        fontSize: '18px',
+        timeout: 2000,
+      });
+    }
   } catch (error) {
     console.log(error);
   }
 }
 
+removeLoadMoreBtn(loadMoreMovies);
+addLoadMoreBtn();
 const loadMoreBtn = document.querySelector('.load-more-button');
-loadMoreBtn.addEventListener('click', () => {
-  loadMore(renderTrendMovies)
-})
 
-export function movieCard(movies) {
+export function loadMore() {
+  currentPage += 1;
+  renderTrendMovies(currentPage);
+  if (currentPage >= totalPages) {
+    removeLoadMoreBtn(loadMore);
+    return;
+  }
+}
+
+loadMoreBtn.addEventListener('click', loadMore);
+
+export function getMovieElements(movies) {
   return movies
-    .map(({ original_title, release_date, id, poster_path, genre_ids }) => {
-      const genresArray = [];
-      let movieGenres = '';
+    .map((movie) => {
+      const { original_title, release_date, id, poster_path, genre_ids } = movie
+      let movieGenres = getGenres(genre_ids, true);
       const movieRelease = new Date(release_date).getFullYear();
 
-      genre_ids.map(id => {
-        return genres.find(el => {
-          if (el.id === id) return genresArray.push(el.name);
-        });
-      });
-      if (genresArray.length > 2) {
-        movieGenres = `${genresArray[0]}, ${genresArray[1]}, Other`;
-      } else {
-        movieGenres = `${genresArray.join(', ')}`;
-      }
       const image = poster_path
         ? `<div class="gallery-item__image-wrap">
               <picture>
-                <source srcset="https://www.themoviedb.org/t/p/w500${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 768px)" type="image/jpeg">
+                <source srcset="https://www.themoviedb.org/t/p/w780${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 768px)" type="image/jpeg">
                 <source srcset="https://www.themoviedb.org/t/p/w300${poster_path} 1x, https://www.themoviedb.org/t/p/w780${poster_path} 2x" media="(min-width: 320px)" type="image/jpeg">                           
                 <img class="gallery-item__image" src="https://www.themoviedb.org/t/p/w300${poster_path}" loading="lazy" alt="${original_title}" data-id="${id}"/>/>
               </picture>
@@ -64,13 +82,16 @@ export function movieCard(movies) {
                 </svg>     
            </div>`;
 
-      return `
+      const element = createElementFromHTML(`
         <li class='gallery-item'>
             ${image}
             <p class="gallery-item__title">${`${original_title.toUpperCase()}`}</p>
             <p class="gallery-item__info">${`${movieGenres} | ${movieRelease}`}</p>
         </li>
-          `;
-    })
-    .join('');
+      `);
+
+      element.dataset.movie = JSON.stringify(movie);
+
+      return element;
+    });
 }

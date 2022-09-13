@@ -1,21 +1,18 @@
 @import './base/mixins';
-@import './common';
+@import './base/common';
 @import './base/base';
 @import './base/reset';
-
 @import './base/modalfilm';
 @import './base/colors';
 @import './utils/mixins';
 @import './utils/breakpoints';
-
-/*heder-homepage*/
 @import './components/header-homepage';
-@import './footer';
-@import './section';
-@import './container';
-@import './gallery';
-@import './modal-students';
-
-@import './movieCard';
-@import './library-header';
-@import './load-more-btn';
+@import './components/footer';
+@import './components/section';
+@import './components/container';
+@import './components/gallery';
+@import './components/modal-students';
+@import './components/movieCard';
+@import './components/library-header';
+@import './components/load-more-btn';
+@import './components/scroll-up';

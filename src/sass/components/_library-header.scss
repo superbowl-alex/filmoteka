@@ -1,10 +1,13 @@
 .library-header {
-  min-width: 230px;
   width: 100%;
+  // background-color: var(--header-background-color);
+}
+
+.library-container {
+  min-width: 230px;
   height: 230px;
   padding-top: 40px;
   padding-bottom: 62px;
-  margin: 0 auto 20px auto;
   $shadow: linear-gradient(rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.56));
   background-image: $shadow, url(../images/my_library/mobile.jpg);
   background-repeat: no-repeat;
@@ -15,19 +18,15 @@
     background-image: $shadow, url(../images/my_library/mobile-2x.jpg);
   }
 
-  @media screen and (min-width: 320px) {
+  @include tablet {
+    width: 768px;
+    padding-bottom: 60px;
+    height: 220px;
     background-image: $shadow, url(../images/my_library/tablet.jpg);
 
     @include dpr {
       background-image: $shadow, url(../images/my_library/tablet-2x.jpg);
     }
-  }
-
-  @include tablet {
-    width: 768px;
-    height: 220px;
-    padding-bottom: 60px;
-    margin-bottom: 60px;
   }
 
   @include desktop {
@@ -41,7 +40,6 @@
     }
   }
 }
-
 .header-top {
   display: flex;
   justify-content: space-between;
@@ -56,6 +54,7 @@
 .name {
   margin-left: 12px;
   font-size: 30px;
+  font-weight: 500;
   line-height: 1.16;
   color: var(--light-txt-color);
 }
@@ -91,6 +90,7 @@
 }
 
 .page-link {
+  font-weight: 500;
   line-height: 1.16;
   position: relative;
   color: var(--light-txt-color);
@@ -99,7 +99,8 @@
 
   &.current::after {
     position: absolute;
-    top: 100%;
+    display: block;
+    bottom: -3px;
     left: 0%;
     content: ' ';
     width: 100%;
@@ -148,6 +149,7 @@
   height: 44px;
   width: 130px;
   line-height: 1.3;
+  font-weight: 500;
   color: var(--light-txt-color);
   text-transform: uppercase;
   border: 1px solid var(--light-txt-color);
