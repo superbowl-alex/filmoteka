@@ -5,6 +5,8 @@ import { createElementFromHTML, getGenres } from './helpers';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import { loadMoreMovies } from './searchMovie'
 
+import loading from './loading-spinner';
+
 let currentPage = 1;
 let totalPages = null;
 
@@ -26,7 +28,6 @@ export async function renderTrendMovies(page) {
 
     const elements = getMovieElements(movies);
     elements.forEach(element => gallery.insertAdjacentElement('beforeend', element));
-
     if (totalPages === page) {
       return Notiflix.Notify.failure(`This is the last page`, {
         width: '400px',
@@ -47,6 +48,7 @@ const loadMoreBtn = document.querySelector('.load-more-button');
 
 export function loadMore() {
   currentPage += 1;
+  loading();
   renderTrendMovies(currentPage);
   if (currentPage >= totalPages) {
     removeLoadMoreBtn(loadMore);

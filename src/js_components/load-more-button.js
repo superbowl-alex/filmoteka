@@ -14,6 +14,3 @@ export function removeLoadMoreBtn(func) {
     loadMoreBtn.removeEventListener('click', func)
     buttonContainer.remove()
 }
-
-
-
