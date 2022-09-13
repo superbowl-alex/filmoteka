@@ -1,4 +1,4 @@
-body.show-modal .backdrop{
+body.show-modal .students-backdrop{
   opacity: 1;
   visibility: visible;
   pointer-events: initial;
@@ -7,7 +7,7 @@ body.show-modal .backdrop{
 body.show-modal .modal{
   transform:scale(1);
 }
-.backdrop {
+.students-backdrop {
     display: flex;
     align-items: center;
     justify-content: center;

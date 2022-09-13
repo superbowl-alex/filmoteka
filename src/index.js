@@ -5,7 +5,7 @@ import { renderTrendMovies } from './js_components/trendMoviesCards';
 import { onSearchMovie } from './js_components/searchMovie';
 import getRefs from './js_components/getRefs';
 const refs = getRefs();
-const scroll = new OnlyScroll(document.scrollingElement, {
+export const scroll = new OnlyScroll(document.scrollingElement, {
     damping: 0.8,
 });
 
