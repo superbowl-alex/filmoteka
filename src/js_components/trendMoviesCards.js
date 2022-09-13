@@ -54,9 +54,7 @@ export function loadMore() {
   }
 }
 
-loadMoreBtn.addEventListener('click', () => {
-  loadMore(renderTrendMovies, currentPage);
-});
+loadMoreBtn.addEventListener('click', loadMore);
 
 export function getMovieElements(movies) {
   return movies

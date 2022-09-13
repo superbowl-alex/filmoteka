@@ -39,9 +39,7 @@ export function onSearchMovie(e) {
     removeLoadMoreBtn(loadMore);
     addLoadMoreBtn();
     const loadMoreBtn = document.querySelector('.load-more-button');
-    loadMoreBtn.addEventListener('click', () => {
-      loadMoreMovies();
-    });
+    loadMoreBtn.addEventListener('click', loadMoreMovies);
   }
 }
 
