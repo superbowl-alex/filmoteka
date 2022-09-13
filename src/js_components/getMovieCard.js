@@ -25,7 +25,7 @@ export function getMovieCard(movie) {
            </div>`;
 
   const element = createElementFromHTML(`
-        <li class='gallery-item'>
+        <li class='gallery-item js-item'>
             ${image}
             <p class="gallery-item__title">${`${original_title.toUpperCase()}`}</p>
             <p class="gallery-item__info">${`${movieGenres} | ${movieRelease}`}</p>
