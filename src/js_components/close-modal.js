@@ -16,7 +16,14 @@ function onModalClick(e) {
   data = JSON.parse(item.dataset.movie);
 
   const template = document.querySelector('template');
-  const lightbox = basicLightbox.create(template);
+  const lightbox = basicLightbox.create(template, {
+    onShow: () => {
+      document.body.style.overflow = 'hidden';
+    },
+    onClose: () => {
+      document.body.style.overflow = 'visible';
+    },
+  });
   fillMovieDetails(lightbox.element(), JSON.parse(item.dataset.movie));
   lightbox.show();
 
@@ -29,9 +36,7 @@ function onModalClick(e) {
   }
 
   const btnClose = document.querySelector('.button-close');
-  const backdrop = document.querySelector('.backdrop');
   btnClose.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
   function closeModal() {
     lightbox.close();
     btnClose.removeEventListener('click', closeModal);
