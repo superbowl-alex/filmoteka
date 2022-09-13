@@ -1,195 +1,336 @@
-<div class="students-backdrop js-backdrop">
-    <div class="modal">
-        <button type="button" class="button-close" data-action="close-modal">
-            <svg class="close-button-icon" width="26px" height="26px">
-                <use href="./images/modal-students/sprite.svg#icon-close"></use>
+<template data-students>
+  <div class="modal">
+    <button type="button" class="button-close" data-action="close-modal">
+      <svg class="close-button-icon" width="26px" height="26px">
+        <use href="./images/modal-students/sprite.svg#icon-close"></use>
+      </svg>
+    </button>
+    <h2 class="team-title">Our Team</h2>
+    <ul class="team-list">
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/1.jpg"
+            class="team-img-f"
+            alt="Yana Karpliuk"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Yana Karpliuk</h3>
+          <p class="team-content-text" lang="en">Team Lead</p>
+          <a
+            href="https://github.com/YanaKarpliuk"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
             </svg>
-        </button>
-        <h2 class="team-title">Our Team</h2>
-        <ul class="team-list">
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/1.jpg" class="team-img-f" alt="Yana Karpliuk">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Yana Karpliuk </h3>
-                    <p class="team-content-text" lang="en">Team Lead</p>
-                    <a href="https://github.com/YanaKarpliuk" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                <img src="./images/modal-students/2.jpg" class="team-img-f" alt=" Yevhen Zarozhevskyi">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Yevhen Zarozhevskyi </h3>
-                    <p class="team-content-text" lang="en">Scrum master</p>
-                    <a href="https://github.com/zarozhenya" target="_blank" rel="noopener noreferrer"
-                            class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/3.jpg"class="team-img-f" alt="Aleksandr Vorsakov ">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Aleksandr Vorsakov</h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/Aleksandr117Vorsakov" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/4.jpg" class="team-img-f" alt="Oleksandr Shendrykv ">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Oleksandr Shendrykv</h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/superbowl-alex" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/5.jpg" class="team-img-f" alt="Danyil Repenko">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Danyil Repenko </h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/Danyil-Repenko" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/6.jpg" class="team-img-f" alt="Nesterenko-Artem">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">"Nesterenko Artem</h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/Nesterenko-Artem" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/7.jpg" class="team-img-f" alt="Alona Liubchenko">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Alona Liubchenko </h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/Alona-Liubchenko" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/8.jpg" class="team-img-f" alt="Denis Voronko">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Denis Voronko </h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/DenisVoron" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/9.jpg" class="team-img-f" alt="Yevgen Maryshchyn">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Yevgen Maryshchyn </h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a  href="https://github.com/Maryshchyn" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/10.jpg" class="team-img-f" alt="Alexandr Rembeza">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Alexandr Rembeza</h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/11.jpg" class="team-img-f" alt="Sergey Plivak">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Sergey Plivak</h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/Plivak1" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-            <li class="team-item">
-                <div class="team-img">
-                    <img src="./images/modal-students/12.jpg" class="team-img-f" alt="Serhiii Zhyhanov">
-                </div>
-                <div class="team-content">
-                    <h3 class="team-content-title">Serhiii Zhyhanov</h3>
-                    <p class="team-content-text" lang="en">Front-end developer</p>
-                    <a href="https://github.com/serhii1976" target="_blank" rel="noopener noreferrer"
-                        class="team-link">
-                        <svg class="team-icon">
-                            <use href="./images/modal-students/sprite.svg#icon-github"  width="18px" height="18px"></use>
-                        </svg>
-                    </a>
-                </div>
-            </li>
-
-        </ul>
-
-    </div>
-
-</div>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/2.jpg"
+            class="team-img-f"
+            alt=" Yevhen Zarozhevskyi"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Yevhen Zarozhevskyi</h3>
+          <p class="team-content-text" lang="en">Scrum master</p>
+          <a
+            href="https://github.com/zarozhenya"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/3.jpg"
+            class="team-img-f"
+            alt="Aleksandr Vorsakov "
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Aleksandr Vorsakov</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/Aleksandr117Vorsakov"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/4.jpg"
+            class="team-img-f"
+            alt="Oleksandr Shendrykv "
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Oleksandr Shendrykv</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/superbowl-alex"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/5.jpg"
+            class="team-img-f"
+            alt="Danyil Repenko"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Danyil Repenko</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/Danyil-Repenko"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/6.jpg"
+            class="team-img-f"
+            alt="Nesterenko-Artem"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">"Nesterenko Artem</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/Nesterenko-Artem"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/7.jpg"
+            class="team-img-f"
+            alt="Alona Liubchenko"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Alona Liubchenko</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/Alona-Liubchenko"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/8.jpg"
+            class="team-img-f"
+            alt="Denis Voronko"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Denis Voronko</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/DenisVoron"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/9.jpg"
+            class="team-img-f"
+            alt="Yevgen Maryshchyn"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Yevgen Maryshchyn</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/Maryshchyn"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/10.jpg"
+            class="team-img-f"
+            alt="Alexandr Rembeza"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Alexandr Rembeza</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/11.jpg"
+            class="team-img-f"
+            alt="Sergey Plivak"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Sergey Plivak</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/Plivak1"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+      <li class="team-item">
+        <div class="team-img">
+          <img
+            src="./images/modal-students/12.jpg"
+            class="team-img-f"
+            alt="Serhiii Zhyhanov"
+          />
+        </div>
+        <div class="team-content">
+          <h3 class="team-content-title">Serhiii Zhyhanov</h3>
+          <p class="team-content-text" lang="en">Front-end developer</p>
+          <a
+            href="https://github.com/serhii1976"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="team-link"
+          >
+            <svg class="team-icon">
+              <use
+                href="./images/modal-students/sprite.svg#icon-github"
+                width="18px"
+                height="18px"
+              ></use>
+            </svg>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</template>
