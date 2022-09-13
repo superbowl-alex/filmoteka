@@ -49,9 +49,9 @@ function onModalClick(e) {
 function fillMovieDetails(template, movie) {
   template.querySelector('.movie-title').innerHTML = movie.title;
   template.querySelector('.about-text').innerHTML = movie.overview;
-  template.querySelector('.vote').innerHTML = movie.vote_average;
+  template.querySelector('.vote').innerHTML = movie.vote_average.toFixed(1);
   template.querySelector('.votes').innerHTML = movie.vote_count;
-  template.querySelector('.popularity').innerHTML = movie.popularity;
+  template.querySelector('.popularity').innerHTML = movie.popularity.toFixed(1);
   template.querySelector('.original-title').innerHTML = movie.title;
   template.querySelector('.movie-genres').innerHTML = getGenres(
     movie.genre_ids
