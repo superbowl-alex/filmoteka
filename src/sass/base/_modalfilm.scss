@@ -269,3 +269,14 @@
     padding-right: 5px;
   }
 }
+
+.gallery-item__placeholder-modal {
+  max-width: 357px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 373px;
+  }
+  @media screen and (min-width: 1280px) {
+    max-width: 375px;
+  }
+}
