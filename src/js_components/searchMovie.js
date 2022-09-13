@@ -42,10 +42,7 @@ export function onSearchMovie(e) {
     addLoadMoreBtn();
     loading();
     const loadMoreBtn = document.querySelector('.load-more-button');
-    loadMoreBtn.addEventListener('click', () => {
-      loadMoreMovies();
-      loading();
-    });
+    loadMoreBtn.addEventListener('click', loadMoreMovies);
   }
 }
 

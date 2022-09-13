@@ -1,7 +1,8 @@
 import * as basicLightbox from 'basiclightbox';
-
+import OnlyScroll from 'only-scrollbar';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { getGenres } from './helpers';
+import { scroll } from '../index'
 
 document.querySelector('.gallery').addEventListener('click', onModalClick);
 
@@ -16,7 +17,16 @@ function onModalClick(e) {
   data = JSON.parse(item.dataset.movie);
 
   const template = document.querySelector('template');
-  const lightbox = basicLightbox.create(template);
+  const lightbox = basicLightbox.create(template, {
+    onShow: () => {
+      document.body.style.overflow = 'hidden';
+      scroll.lock();
+    },
+    onClose: () => {
+      document.body.style.overflow = 'visible';
+      scroll.unlock();
+    },
+  });
   fillMovieDetails(lightbox.element(), JSON.parse(item.dataset.movie));
   lightbox.show();
 
@@ -28,10 +38,8 @@ function onModalClick(e) {
     }
   }
 
-  const btnClose = document.querySelector('.button-close');
-  const backdrop = document.querySelector('.backdrop');
+  const btnClose = document.querySelector('.modalfilm-button-close');
   btnClose.addEventListener('click', closeModal);
-  backdrop.addEventListener('click', closeModal);
   function closeModal() {
     lightbox.close();
     btnClose.removeEventListener('click', closeModal);
@@ -39,7 +47,6 @@ function onModalClick(e) {
 }
 
 function fillMovieDetails(template, movie) {
-  console.log(movie);
   template.querySelector('.movie-title').innerHTML = movie.title;
   template.querySelector('.about-text').innerHTML = movie.overview;
   template.querySelector('.vote').innerHTML = movie.vote_average;
