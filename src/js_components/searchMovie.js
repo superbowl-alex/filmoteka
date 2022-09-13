@@ -92,6 +92,7 @@ function renderLoadMoreMovies(query, page) {
 // Function that is executed when the loadMoreBtn is clicked
 export function loadMoreMovies() {
   renderLoadMoreMovies(querySearch, pageQuery);
+  loading();
 }
 
 // Function that warns that we have reached the end of the collection
