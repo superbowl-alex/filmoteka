@@ -1,3 +1,4 @@
+import Notiflix from 'notiflix';
 import { data } from './close-modal';
 
 let watchedFilms = [];
@@ -14,6 +15,12 @@ function onBtnAddToWatchedClick() {
       parsedWatchedFilm => parsedWatchedFilm.id === data.id
     );
     if (hasMovie) {
+      Notiflix.Notify.init({
+        fontSize: '16px',
+        distance: '20px',
+      });
+
+      Notiflix.Notify.info('The movie is already added to watched');
       return;
     }
 
