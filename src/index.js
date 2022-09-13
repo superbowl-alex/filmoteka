@@ -10,4 +10,5 @@ renderTrendMovies();
 refs.form.addEventListener('submit', onSearchMovie);
 import './js_components/close-modal';
 import './js_components/loading-spinner';
-import './js_components/scroll-up'
+import './js_components/scroll-up';
+import './js_components/addToWatched';

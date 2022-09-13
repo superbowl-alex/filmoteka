@@ -12,7 +12,6 @@ export default class imgApiServise {
   }
   // https://api.themoviedb.org/3/collection/{collection_id}?api_key=<<api_key>>&language=en-US_uk
 
- 
   async fetchImg() {
     try {
       const response = await axios.get(

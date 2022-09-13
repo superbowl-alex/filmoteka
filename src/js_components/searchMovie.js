@@ -66,6 +66,7 @@ function renderSearchMovies(query) {
         );
         if (totalPages === pageQuery) {
           warningEndCollection();
+          removeLoadMoreBtn(loadMoreMovies);
         }
         pageQuery += 1;
       }
@@ -84,6 +85,7 @@ function renderLoadMoreMovies(query, page) {
       );
       if (totalPages === pageQuery) {
         warningEndCollection();
+        removeLoadMoreBtn(loadMoreMovies);
       }
       pageQuery += 1;
     })
@@ -93,10 +95,6 @@ function renderLoadMoreMovies(query, page) {
 // Function that is executed when the loadMoreBtn is clicked
 export function loadMoreMovies() {
   renderLoadMoreMovies(querySearch, pageQuery);
-  if (pageQuery >= totalPages) {
-    removeLoadMoreBtn(loadMoreMovies);
-    return;
-  }
 }
 
 // Function that warns that we have reached the end of the collection
