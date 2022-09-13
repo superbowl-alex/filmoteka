@@ -30,9 +30,10 @@
   top: -2px;
   left: 268px;
   display: block;
+  border-radius: 10px;
 
   border: none;
-  background-color: var(--header-background-color);
+  background-color: var(--color-header-btn);
 
   @media screen and (min-width: $tablet) {
     top: -2px;
@@ -49,7 +50,7 @@ input::placeholder {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 16px;
 
   color: var(--light-txt-color);
