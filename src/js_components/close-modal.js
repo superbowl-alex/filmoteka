@@ -1,5 +1,4 @@
 import * as basicLightbox from 'basiclightbox';
-import OnlyScroll from 'only-scrollbar';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { getGenres } from './helpers';
 import { scroll } from '../index';
@@ -67,12 +66,4 @@ function fillMovieDetails(template, movie) {
     const placeholder = template.querySelector('.gallery-item__placeholder');
     placeholder.style.display = 'flex';
   }
-
-  template
-    .querySelector('button[data-watched]')
-    .addEventListener('click', function () {});
-
-  template
-    .querySelector('button[data-queue]')
-    .addEventListener('click', function () {});
 }

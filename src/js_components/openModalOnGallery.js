@@ -25,6 +25,17 @@ const renderModal = (template, movie) => {
     lightbox.close();
     btnClose.removeEventListener('click', closeModal);
   }
+
+  if (movie.poster_path) {
+    const modal = template.querySelector('.modalfoto-img');
+    modal.src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`;
+  } else {
+    const modal = template.querySelector('.modalfoto-img');
+    modal.style.display = 'none';
+
+    const placeholder = template.querySelector('.gallery-item__placeholder');
+    placeholder.style.display = 'flex';
+  }
 };
 const onGalleryClick = e => {
   const item = e.target.closest('.js-item');

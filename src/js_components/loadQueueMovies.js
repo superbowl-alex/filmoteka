@@ -43,8 +43,6 @@ const onQueueBtnClick = e => {
 
 refs.queueBtn.addEventListener('click', onQueueBtnClick);
 
-onQueueBtnClick();
-
 export function loadMoreQueueMovies() {
   page += 1;
   const markup = data.filter((film, index) => index >= (page * 20 - 20) && index <= (page * 20 - 1)).map(getMovieCard);

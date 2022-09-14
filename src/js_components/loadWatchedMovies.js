@@ -21,7 +21,7 @@ const changeActiveBtn = () => {
   refs.watchedBtn.classList.add('active');
 };
 
-const onWatchedBtnClick = e => {
+export const onWatchedBtnClick = e => {
   changeActiveBtn();
   refs.gallery.innerHTML = '';
   data = JSON.parse(localStorage.getItem(KEY)) || [];
@@ -42,8 +42,6 @@ const onWatchedBtnClick = e => {
 };
 
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
-
-onWatchedBtnClick();
 
 export function loadMoreWatchedMovies() {
   page += 1;
