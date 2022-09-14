@@ -25,11 +25,13 @@
   justify-content: center;
   height: 100%;
   width: 100%;
-  font-size: 20px;
-  content: '🠅';
+  font-size: 30px;
+  font-weight: 500;
+  content:"\21E7";
 }
 
 .scroll-up:hover {
+  
   color: orange;
 }
 
@@ -37,6 +39,7 @@
   visibility: visible;
   opacity: 1;
   transform: translateY(0);
+  
 }
 
 .scroll-up_svg-path {
@@ -45,4 +48,5 @@
   stroke: orange;
   stroke-width: 4px;
   transition: 0.2s;
+  
 }
