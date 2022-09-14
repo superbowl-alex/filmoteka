@@ -17,7 +17,7 @@ let pageQuery;
 let totalPages = null;
 
 // Add eventListener to the form
-refs.form.addEventListener('submit', onSearchMovie);
+refs.form?.addEventListener('submit', onSearchMovie);
 
 //Function for requesting and receiving data from the server
 export async function fetchMovies(query, page) {

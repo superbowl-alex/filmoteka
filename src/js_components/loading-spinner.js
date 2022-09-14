@@ -1,6 +1,4 @@
 import { Loading } from 'notiflix/build/notiflix-loading-aio';
-console.log(Loading);
-
 
 export default function loading() {
 
