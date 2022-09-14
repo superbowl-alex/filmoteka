@@ -3,6 +3,8 @@ import './js_components/loadWatchedMovies';
 import './js_components/loadQueueMovies'
 import './js_components/openModalOnGallery';
 import './js_components/scroll-up';
+
+// import './js_components/modal-student';
 const scroll = new OnlyScroll(document.scrollingElement, {
     damping: 0.8,
 });

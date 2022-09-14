@@ -1,5 +1,4 @@
 const axios = require('axios');
-import ApiQuery from './js_components/api_query';
 import OnlyScroll from 'only-scrollbar';
 import { renderTrendMovies } from './js_components/trendMoviesCards';
 export const scroll = new OnlyScroll(document.scrollingElement, {
