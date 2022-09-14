@@ -29,7 +29,9 @@ const renderModal = (template, movie) => {
   }
 };
 const onGalleryClick = e => {
-  const data = JSON.parse(e.target.closest('.js-item').dataset.movie);
+  const item = e.target.closest('.js-item');
+  if (!item) return;
+  const data = JSON.parse(item.dataset.movie);
   lightbox.show();
   renderModal(lightbox.element(), data);
 };

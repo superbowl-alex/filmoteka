@@ -29,7 +29,7 @@ const onWatchedBtnClick = e => {
   //записую загальну кількість сторінок; нічого, що число не ціле, так краще
   totalPages = data.length / 20;
   if (data.length === 0) {
-    Notify.info('There is no movies yet');
+    Notify.info('There are no watched movies yet');
   }
   markup = data.map(getMovieCard);
   //перша перевірка - якщо фільмів більше, ніж 20, завантажує лише перші 20 штук
@@ -37,6 +37,14 @@ const onWatchedBtnClick = e => {
     markup = data.filter((film, index) => index < 20).map(getMovieCard);
   }
   refs.gallery.append(...markup);
+
+  const loadMoreBtn = document.querySelector('.load-more-button');
+
+  if (totalPages > 1 && !loadMoreBtn) {
+    addLoadMoreBtn();
+  }
+
+  loadMoreBtn?.addEventListener('click', loadMoreWatchedMovies);
 };
 
 refs.watchedBtn.addEventListener('click', onWatchedBtnClick);
@@ -56,7 +64,7 @@ if (totalPages > 1) {
   addLoadMoreBtn();
 }
 const loadMoreBtn = document.querySelector('.load-more-button');
-loadMoreBtn.addEventListener('click', loadMoreWatchedMovies);
+loadMoreBtn?.addEventListener('click', loadMoreWatchedMovies);
 function loadMoreWatchedMovies() {
   page += 1;
   //різні сторінки - різні фільми
