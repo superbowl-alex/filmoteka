@@ -8,6 +8,7 @@
 .form-header_input {
   width: 100%;
   font-size: 16px;
+  
   border: none;
   outline: none;
 
@@ -36,13 +37,13 @@
   background-color: var(--color-header-btn);
 
   @media screen and (min-width: $tablet) {
-    top: 0px;
+    top: 2px;
     left: 506px;
   }
 
   @media screen and (min-width: $desktop) {
-    top: -2px;
-    left: 793px;
+    top: 0px;
+    left: 790px;
   }
 }
 
