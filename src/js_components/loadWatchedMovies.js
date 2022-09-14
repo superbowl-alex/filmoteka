@@ -1,4 +1,5 @@
 import { getMovieCard } from './getMovieCard';
+import { Notify } from 'notiflix';
 
 const refs = {
   watchedBtn: document.querySelector('.js-watched-list'),
@@ -18,6 +19,7 @@ const onWatchedBtnClick = e => {
   refs.gallery.innerHTML = '';
   const data = JSON.parse(localStorage.getItem(KEY)) || [];
   if (data.length === 0) {
+    Notify.info('There is no movies yet');
   }
   const markup = data.map(getMovieCard);
   refs.gallery.append(...markup);
