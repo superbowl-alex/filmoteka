@@ -1,4 +1,5 @@
 import { getMovieCard } from './getMovieCard';
+import { Notify } from 'notiflix';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import loading from '../js_components/loading-spinner';
 import { loadMoreQueueMovies } from './loadQueueMovies';
@@ -27,6 +28,7 @@ const onWatchedBtnClick = e => {
   totalPages = data.length / 20;
   page = 1;
   if (data.length === 0) {
+    Notify.info('There are no movies in your watched yet');
   }
   markup = data.map(getMovieCard);
   removeLoadMoreBtn(loadMoreQueueMovies);
