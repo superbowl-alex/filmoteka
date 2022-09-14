@@ -65,6 +65,7 @@ if (totalPages > 1) {
 }
 const loadMoreBtn = document.querySelector('.load-more-button');
 loadMoreBtn?.addEventListener('click', loadMoreWatchedMovies);
+
 function loadMoreWatchedMovies() {
   page += 1;
   //різні сторінки - різні фільми
