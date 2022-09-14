@@ -29,7 +29,11 @@ const onQueueBtnClick = e => {
     Notify.info('There are no movies in your queue yet');
   }
   markup = data.map(getMovieCard);
+  removeLoadMoreBtn();
   if (totalPages > 1) {
+    addLoadMoreBtn();
+    const loadMoreBtn = document.querySelector('.load-more-button');
+    loadMoreBtn.addEventListener('click', loadMoreQueueMovies);
     markup = data.filter((film, index) => index < 20).map(getMovieCard);
   }
   refs.gallery.append(...markup);
@@ -39,14 +43,6 @@ refs.queueBtn.addEventListener('click', onQueueBtnClick);
 
 onQueueBtnClick();
 
-removeLoadMoreBtn();
-
-if (totalPages > 1) {
-  addLoadMoreBtn();
-}
-
-const loadMoreBtn = document.querySelector('.load-more-button');
-loadMoreBtn?.addEventListener('click', loadMoreQueueMovies);
 function loadMoreQueueMovies() {
   page += 1;
   const markup = data.filter((film, index) => index >= (page * 20 - 20) && index <= (page * 20 - 1)).map(getMovieCard);
