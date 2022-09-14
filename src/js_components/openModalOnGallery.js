@@ -20,6 +20,7 @@ const renderModal = (template, movie) => {
   template.querySelector(
     '.modalfoto-img'
   ).src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`;
+  template.querySelector("div.btn-l").style.display = "none";
   const btnClose = document.querySelector('.modalfilm-button-close');
 
   btnClose.addEventListener('click', closeModal);
