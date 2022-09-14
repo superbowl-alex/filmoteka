@@ -7,21 +7,35 @@
   overflow: scroll;
 }
 .modalfilm {
+  background-color: #ffffff;
   position: absolute;
-
-  top: 20px;
-  // bottom: 38px;
-  left: 50%;
-  transform: translate(-50%);
-  width: 95vw;
-  // min-height: 940px;
-  background: #ffffff;
-  // background-color: rgba(255, 255, 255, 1);
-  border-radius: 5px;
+  bottom: 50%;
+  right: 50%;
+  border-radius: 4px;
+  padding: 20px;
   padding-top: 40px;
   padding-bottom: 40px;
-  padding-left: 20px;
-  padding-right: 20px;
+  overflow: auto;
+  width: 100vw;
+  height: 95vh;
+  z-index: 22;
+
+  transform: translate(50%, 50%);
+  // position: absolute;
+
+  // top: 20px;
+  // // bottom: 38px;
+  // left: 50%;
+  // transform: translate(-50%);
+  // width: 95vw;
+  // // min-height: 940px;
+  // background: #ffffff;
+  // // background-color: rgba(255, 255, 255, 1);
+  // border-radius: 5px;
+  // padding-top: 40px;
+  // padding-bottom: 40px;
+  // padding-left: 20px;
+  // padding-right: 20px;
 
   .movie-title {
     font-family: 'Roboto';
@@ -46,8 +60,9 @@
 
   @media screen and (min-width: 320px) {
     width: 280px;
-    top: 50%;
-    transform: translate(-50%, -50%);
+    padding-top: 48px;
+    // top: 50%;
+    // transform: translate(-50%, -50%);
     .modalfoto-img {
       // min-width: 240px;
       // height: 100%;
@@ -65,20 +80,18 @@
   }
 
   @media screen and (min-width: 768px) {
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // transform: translate(-50%, -50%);
     width: 704px;
-    padding-left: 32px;
-    padding-right: 32px;
-    .modalfilm {
-      padding-top: 40px;
-    }
+    height: 552px;
+    padding: 40px 20px;
+
     .wraper {
       display: flex;
     }
     .about {
       margin-left: 68px;
-      padding-right: 40px;
+      margin-right: 36px;
     }
     .movie-title {
       font-size: 20px;
@@ -89,8 +102,10 @@
     .modalfoto-img {
       // min-width: 264px;
       // height: 100%;
+      // min-width: 264px;
+      // height: 373.55px;
       max-width: 264px;
-      height: 373.55px;
+      height: 472px;
     }
     .btn:last-child {
       margin-left: 15px;
@@ -102,15 +117,15 @@
     }
   }
   @media screen and (min-width: 1280px) {
-    top: 50%;
-    transform: translate(-50%, -50%);
+    // top: 50%;
+    // transform: translate(-50%, -50%);
     width: 806px;
-
+    height: 558px;
     padding: 40px 12px;
 
     .about {
       margin-left: 16px;
-      padding-right: 0;
+      margin-right: 0;
     }
 
     .movie-title {
