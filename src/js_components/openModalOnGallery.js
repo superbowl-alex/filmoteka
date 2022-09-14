@@ -1,7 +1,7 @@
 import 'basiclightbox/dist/basicLightbox.min.css';
 import * as basicLightbox from 'basiclightbox';
 import { getGenres } from './helpers';
-import { scroll } from  '../library';
+import { scroll } from '../library';
 
 const refs = {
   gallery: document.querySelector('.gallery'),
@@ -55,8 +55,8 @@ function renderModal(template, movie) {
   template.querySelector('.movie-genres').innerHTML = getGenres(
     movie.genre_ids
   );
-  template.querySelector("div.btn-l").style.display = "none";
-  
+  template.querySelector("div.btn-l").style.display = 'none'
+
   if (movie.poster_path) {
     const modal = template.querySelector('.modalfoto-img');
     modal.src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`;
