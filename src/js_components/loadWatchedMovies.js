@@ -1,4 +1,5 @@
 import { getMovieCard } from './getMovieCard';
+import { Notify } from 'notiflix';
 import { addLoadMoreBtn, removeLoadMoreBtn } from './load-more-button';
 import loading from '../js_components/loading-spinner';
 
@@ -28,6 +29,7 @@ const onWatchedBtnClick = e => {
   //записую загальну кількість сторінок; нічого, що число не ціле, так краще
   totalPages = data.length / 20;
   if (data.length === 0) {
+    Notify.info('There is no movies yet');
   }
   markup = data.map(getMovieCard);
   //перша перевірка - якщо фільмів більше, ніж 20, завантажує лише перші 20 штук
