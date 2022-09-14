@@ -1,5 +1,5 @@
+import Notiflix from 'notiflix';
 import { data } from './close-modal';
-// console.log(data);
 
 let watchedFilms = [];
 let parsedWatchedFilms = [];
@@ -11,6 +11,19 @@ function onBtnAddToWatchedClick() {
   parsedWatchedFilms = JSON.parse(watchedFilms);
 
   if (parsedWatchedFilms) {
+    const hasMovie = parsedWatchedFilms.find(
+      parsedWatchedFilm => parsedWatchedFilm.id === data.id
+    );
+    if (hasMovie) {
+      Notiflix.Notify.init({
+        fontSize: '16px',
+        distance: '20px',
+      });
+
+      Notiflix.Notify.info('The movie is already added to watched');
+      return;
+    }
+
     parsedWatchedFilms.push(data);
     dataJson = JSON.stringify(parsedWatchedFilms);
     localStorage.setItem(LOCALSTORAGE_KEY, dataJson);
@@ -21,13 +34,10 @@ function onBtnAddToWatchedClick() {
   }
 }
 
-// const btnWatched = document.querySelector('.watched');
-// btnWatched.addEventListener('click', onBtnAddToWatchedClick);
-
 function onBtnClick(e) {
-  // console.log(e.target.className);
   if (e.target.className === 'btn watched') {
     onBtnAddToWatchedClick();
   }
 }
+
 document.addEventListener('click', onBtnClick);

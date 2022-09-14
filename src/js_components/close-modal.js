@@ -2,7 +2,7 @@ import * as basicLightbox from 'basiclightbox';
 import OnlyScroll from 'only-scrollbar';
 import 'basiclightbox/dist/basicLightbox.min.css';
 import { getGenres } from './helpers';
-import { scroll } from '../index'
+import { scroll } from '../index';
 
 document.querySelector('.gallery').addEventListener('click', onModalClick);
 
@@ -16,7 +16,7 @@ function onModalClick(e) {
 
   data = JSON.parse(item.dataset.movie);
 
-  const template = document.querySelector('template');
+  const template = document.querySelector('template[data-movie]');
   const lightbox = basicLightbox.create(template, {
     onShow: () => {
       document.body.style.overflow = 'hidden';
@@ -49,16 +49,24 @@ function onModalClick(e) {
 function fillMovieDetails(template, movie) {
   template.querySelector('.movie-title').innerHTML = movie.title;
   template.querySelector('.about-text').innerHTML = movie.overview;
-  template.querySelector('.vote').innerHTML = movie.vote_average;
+  template.querySelector('.vote').innerHTML = movie.vote_average.toFixed(1);
   template.querySelector('.votes').innerHTML = movie.vote_count;
-  template.querySelector('.popularity').innerHTML = movie.popularity;
+  template.querySelector('.popularity').innerHTML = movie.popularity.toFixed(1);
   template.querySelector('.original-title').innerHTML = movie.title;
   template.querySelector('.movie-genres').innerHTML = getGenres(
     movie.genre_ids
   );
-  template.querySelector(
-    '.modalfoto-img'
-  ).src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`;
+
+  if (movie.poster_path) {
+    const modal = template.querySelector('.modalfoto-img');
+    modal.src = `https://www.themoviedb.org/t/p/w780${movie.poster_path}`;
+  } else {
+    const modal = template.querySelector('.modalfoto-img');
+    modal.style.display = 'none';
+
+    const placeholder = template.querySelector('.gallery-item__placeholder');
+    placeholder.style.display = 'flex';
+  }
 
   template
     .querySelector('button[data-watched]')
