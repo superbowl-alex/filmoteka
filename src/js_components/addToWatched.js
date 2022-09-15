@@ -7,6 +7,7 @@ let dataJson = [];
 const LOCALSTORAGE_KEY = 'watched-movies';
 
 function onBtnAddToWatchedClick() {
+  document.querySelector('.btn.watched').innerHTML = 'remove from watched'
   watchedFilms = localStorage.getItem(LOCALSTORAGE_KEY);
   parsedWatchedFilms = JSON.parse(watchedFilms);
 
@@ -36,8 +37,19 @@ function onBtnAddToWatchedClick() {
 
 function onBtnClick(e) {
   if (e.target.className === 'btn watched') {
+    if(e.target.innerHTML === 'remove from watched') {
+      removeFromWatched()
+      return
+    }
     onBtnAddToWatchedClick();
   }
 }
 
 document.addEventListener('click', onBtnClick);
+
+function removeFromWatched() {
+  const watchItem = JSON.parse(localStorage.getItem(LOCALSTORAGE_KEY))
+  localStorage.setItem(LOCALSTORAGE_KEY, JSON.stringify(watchItem.filter(item => item.id !== data.id)))
+  document.querySelector('.btn.watched').innerHTML = 'add to watched'
+}
+

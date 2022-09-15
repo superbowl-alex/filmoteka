@@ -66,4 +66,28 @@ function fillMovieDetails(template, movie) {
     const placeholder = template.querySelector('.gallery-item__placeholder');
     placeholder.style.display = 'flex';
   }
+
+  const watchedFilms = localStorage.getItem('watched-movies');
+  const parsedWatchedFilms = JSON.parse(watchedFilms);
+
+  if (parsedWatchedFilms) {
+    const hasWatched = parsedWatchedFilms.find(
+      parsedWatchedFilm => parsedWatchedFilm.id === data.id
+    );
+    if (hasWatched) {
+      template.querySelector('.btn.watched').innerHTML = 'remove from watched';
+    }
+  }
+
+  const queueFilms = localStorage.getItem('queue-movies');
+  const parsedQueueFilms = JSON.parse(queueFilms);
+
+  if (parsedQueueFilms) {
+    const hasQueued = parsedQueueFilms.find(
+      parsedQueueFilm => parsedQueueFilm.id === data.id
+    );
+    if (hasQueued) {
+      template.querySelector('.btn.queue').innerHTML = 'remove from queue';
+    }
+  }
 }
