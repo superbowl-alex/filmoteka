@@ -34,34 +34,10 @@ function onBtnAddToWatchedClick() {
   }
 }
 
-export function onBtnRemoveFromWatchedClick(event) {
-  if (event.target.className != 'btn watched') {
-    return;
-  }
-  watchedFilms = localStorage.getItem(LOCALSTORAGE_KEY);
-  parsedWatchedFilms = JSON.parse(watchedFilms);
-
-  parsedWatchedFilms.map((film, index) => {
-    if (film.id === data.id) {
-      parsedWatchedFilms.splice(index, 1)
-    }
-  });
-  dataJson = JSON.stringify(parsedWatchedFilms);
-  localStorage.setItem(LOCALSTORAGE_KEY, dataJson);
-  event.target.textContent = 'add to watched'
-  this.removeEventListener('click', onBtnRemoveFromWatchedClick);
-  document.addEventListener('click', onBtnClick)
-}
-
-
-export function onBtnClick(e) {
+function onBtnClick(e) {
   if (e.target.className === 'btn watched') {
     onBtnAddToWatchedClick();
-    e.target.textContent = 'remove form watched'
-    this.removeEventListener('click', onBtnClick);
-    document.addEventListener('click', onBtnRemoveFromWatchedClick)
   }
 }
 
 document.addEventListener('click', onBtnClick);
-

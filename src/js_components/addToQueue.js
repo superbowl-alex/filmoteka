@@ -34,33 +34,10 @@ function onBtnAddToQueueClick() {
   }
 }
 
-export function onBtnRemoveFromQueueClick(event) {
-  if (event.target.className != 'btn queue') {
-    return;
-  }
-  watchedFilms = localStorage.getItem(LOCALSTORAGE_KEY);
-  parsedWatchedFilms = JSON.parse(watchedFilms);
-
-  parsedWatchedFilms.map((film, index) => {
-    if (film.id === data.id) {
-      parsedWatchedFilms.splice(index, 1)
-    }
-  });
-  dataJson = JSON.stringify(parsedWatchedFilms);
-  localStorage.setItem(LOCALSTORAGE_KEY, dataJson);
-  event.target.textContent = 'add to queue'
-  this.removeEventListener('click', onBtnRemoveFromQueueClick);
-  document.addEventListener('click', onButtonClick)
-
-}
-
-export function onButtonClick(e) {
+function onBtnClick(e) {
   if (e.target.className === 'btn queue') {
     onBtnAddToQueueClick();
-    e.target.textContent = 'remove form queue'
-    this.removeEventListener('click', onButtonClick);
-    document.addEventListener('click', onBtnRemoveFromQueueClick)
   }
 }
 
-document.addEventListener('click', onButtonClick);
+document.addEventListener('click', onBtnClick);
